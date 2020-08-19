@@ -1,0 +1,449 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    width:100%;
+    height:100%
+}
+/* .header{
+    width:7.50rem;
+    height:0.88rem;
+    line-height: 0.88rem;
+    text-align: center;
+    font-size: 0.32rem;
+    font-family: PingFang SC Regular, PingFang SC Regular-Regular;
+    color: #000000;
+    letter-spacing: 0.02rem;
+} */
+.contain{
+    width:7.50rem;
+    height:100%;
+    background:url('../image/bg1x.png') no-repeat top /100%;
+    position: relative;
+}
+.card_wrap{
+    width:5.24rem;
+    height:5.24rem;
+    position: absolute;
+    top:3.29rem;
+    left:1.10rem;
+}
+.card{
+    width:1.28rem;
+    height:2.02rem;
+    margin:0.34rem 0 0 0.34rem;
+    float: left;
+}
+.c1{
+    background: url('../image/c1.png')no-repeat center /100%;
+}
+.c2{
+    background: url('../image/c2.png')no-repeat center /100%;
+}
+.c3{
+    background: url('../image/c3.png')no-repeat center /100%;
+}
+.c4{
+    background: url('../image/c4.png')no-repeat center /100%;
+}
+.c5{
+    background: url('../image/c5.png')no-repeat center /100%;
+}
+.c6{
+    background: url('../image/c6.png')no-repeat center /100%;
+}
+
+
+
+/*卡牌翻开动画*/
+.card_wrap .open-card {
+    /* left: 3.64rem !important;
+    top: 0 !important;
+    z-index: 10; */
+    /* -o-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); */
+    -o-animation: openCard 0.5s 0.5s linear forwards;
+    -ms-animation: openCard 0.5s 0.5s linear forwards;
+    -moz-animation: openCard 0.5s 0.5s linear forwards;
+    -webkit-animation: openCard 0.5s 0.5s linear forwards;
+    animation: openCard 0.5s 0.5s linear forwards;
+}
+@keyframes openCard {
+    10%,
+    20%,
+    40%,
+    60% {
+        /* -o-transform:  translateX(10px);
+        -ms-transform:  translateX(10px);
+        -moz-transform:  translateX(10px);
+        -webkit-transform:  translateX(10px);
+        transform:  translateX(10px); */
+    }
+    100% {
+        -o-transform:  translateX(90deg);
+        -ms-transform:  translateX(90deg);
+        -moz-transform:  translateX(90deg);
+        -webkit-transform:  translateX(90deg);
+        transform:  rotateY(90deg);
+    }
+}
+
+
+.in .c1 {
+    -o-animation: shuffleC1 1s 0s ease forwards;
+    -ms-animation: shuffleC1 1s 0s ease forwards;
+    -moz-animation: shuffleC1 1s 0s ease forwards;
+    -webkit-animation: shuffleC1 1s 0s ease forwards;
+    animation: shuffleC1 1s 0s ease forwards;
+}
+@keyframes shuffleC1 {
+    10%,30%,45%,80%{
+        transform:translate3d(120%,1.2rem,0);
+        
+    }
+    90%,100%{
+        transform:translate3d(0%,0%,0);
+        
+    }
+}
+
+.in .c2 {
+    -o-animation: shuffleC2 1s 0.1s ease forwards;
+    -ms-animation: shuffleC2 1s 0.1s ease forwards;
+    -moz-animation: shuffleC2 1s 0.1s ease forwards;
+    -webkit-animation: shuffleC2 1s 0.1s ease forwards;
+    animation: shuffleC2 1s 0.1s ease forwards;
+}
+@keyframes shuffleC2 {
+    10%,30%,45%,80%{
+        
+        transform:translate3d(0%,1.2rem,0)
+    }
+    90%,100%{
+        
+        transform:translate3d(0%,0%,0)
+    }
+}
+.in .c3 {
+    -o-animation: shuffleC3 1s 0.2s ease forwards;
+    -ms-animation: shuffleC3 1s 0.2s ease forwards;
+    -moz-animation: shuffleC3 1s 0.2s ease forwards;
+    -webkit-animation: shuffleC3 1s 0.2s ease forwards;
+    animation: shuffleC3 1s 0.2s ease forwards;
+}
+@keyframes shuffleC3 {
+    10%,30%,45%,80%{
+        
+        transform:translate3d(-120%,1.2rem,0)
+    }
+    90%,100%{
+        
+        transform:translate3d(0%,0%,0)
+    }
+}
+.in .c4 {
+    -o-animation: shuffleC4 1s 0.5s ease forwards;
+    -ms-animation: shuffleC4 1s 0.5s ease forwards;
+    -moz-animation: shuffleC4 1s 0.5s ease forwards;
+    -webkit-animation: shuffleC4 1s 0.5s ease forwards;
+    animation: shuffleC4 1s 0.5s ease forwards;
+}
+@keyframes shuffleC4 {
+    10%,30%,45%,80%{
+        
+        transform:translate3d(120%,-1.2rem,0)
+    }
+    90%,100%{
+        
+        transform:translate3d(0%,0%,0)
+    }
+}
+.in .c5 {
+    -o-animation: shuffleC5 1s 0.4s ease forwards;
+    -ms-animation: shuffleC5 1s 0.4s ease forwards;
+    -moz-animation: shuffleC5 1s 0.4s ease forwards;
+    -webkit-animation: shuffleC5 1s 0.4s ease forwards;
+    animation: shuffleC5 1s 0.4s ease forwards;
+}
+@keyframes shuffleC5 {
+    10%,30%,45%,80%{
+        
+        transform:translate3d(0%,-1.2rem,0)
+    }
+    90%,100%{
+        
+        transform:translate3d(0%,0%,0)
+    }
+}
+.in .c6 {
+    -o-animation: shuffleC6 1s 0.3s ease forwards;
+    -ms-animation: shuffleC6 1s 0.3s ease forwards;
+    -moz-animation: shuffleC6 1s 0.3s ease forwards;
+    -webkit-animation: shuffleC6 1s 0.3s ease forwards;
+    animation: shuffleC6 1s 0.3s ease forwards;
+}
+@keyframes shuffleC6 {
+    10%,30%,45%,80%{
+        
+        transform:translate3d(-120%,-1.2rem,0)
+    }
+    90%,100%{
+        
+        transform:translate3d(0%,0%,0)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mask{
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+}
+.mask_top{
+    width:5.1rem;
+    height:7.5rem;
+    position: absolute;
+    top:2.8rem;
+    left:1.2rem;
+    background: url(../image/haoyun.png) no-repeat center /100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn{
+    margin-top:0.5rem;
+    width:3.46rem;
+    height:1.1rem;
+    background: url(../image/btn.png)no-repeat center/100%;
+}
+.mask_line{
+    width:0.04rem;
+    height:0.64rem;
+    background: #fff;
+    position: absolute;
+    top:10.3rem;
+    left:3.7rem;
+}
+.mask_btn{
+    width:0.56rem;
+    height:0.56rem;
+    background: url(../image/guanbi-2.png)no-repeat center/100%;
+    position: absolute;
+    top:10.94rem;
+    left:3.42rem;
+}
+.coupon_text{
+    font-size: 0.34rem;
+    font-family: FZJuZhenXinFangS-R-GB Regular, FZJuZhenXinFangS-R-GB Regular-Regular;
+    text-align: center;
+    color: #f8d5aa;
+    margin-top:2.24rem;
+}
+.coupon_content{
+    margin-top:0.4rem;
+    width: 3.78rem;
+    height: 1.35rem;
+    background: #f0d4aa;
+    border-radius: 0.1rem;
+    padding:0.07rem;
+}
+.coupon_inner_content{
+    width:100%;
+    height:100%;
+    border: 1px solid #d3a868;
+    border-radius: 0.1rem;
+    display: flex;
+}
+.inner_left{
+    width:1.3rem;
+    height:100%;
+    font-size: 0.59rem;
+    color: #d38a1f;
+    font-family: PingFang SC Regular, PingFang SC Regular-Regular;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right:1px #d3a868 dashed;
+}
+.inner_left span{
+    font-size:0.24rem;
+}
+.inner_left .price{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    display: contents;
+}
+.inner_right{
+    width:2.4rem;
+    padding:0.2rem 0;
+    padding-left:0.2rem;
+    box-sizing: border-box;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.right_top{
+    font-size: 0.24rem;
+    font-family: PingFang SC Medium, PingFang SC Medium-Medium;
+    font-weight: 500;
+    color: #ba7a1a;
+}
+.right_bottom{
+    font-size: 0.20rem;
+    font-family: PingFang SC Medium, PingFang SC Medium-Medium;
+    font-weight: 500;
+    color: #ba7a1a;
+}
+.coupon_text1{
+    margin-top:0.36rem;
+    font-size: 0.28rem;
+    font-family: FZJuZhenXinFangS-R-GB Regular, FZJuZhenXinFangS-R-GB Regular-Regular;
+    text-align: center;
+    color: #f8d5aa;
+}
+
+.mask1,.mask2,.mask3,.mask4{
+    display: none
+}
+.mask4 .mask_top{
+    background: url(../image/tip.png) no-repeat center /100%;
+    top:1.5rem;
+    left:0.72rem;
+    width: 5.8rem;
+    height: 7.9rem;
+}
+.mask4 .mask_btn{
+    top:10rem;
+    left: 3.48rem;
+}
+.mask4 .tip_wrap{
+    width: 4.3rem;
+    height: 4.8rem;
+    margin-top:1rem;
+    margin-left:0.1rem;
+    padding: 0 0.2rem;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+.mask4 .tip_title{
+    font-size: 0.28rem;
+    font-family: PingFang SC Regular, PingFang SC Regular-Regular;
+    color: #ffffff;
+    text-align: center;
+    margin:0.2rem 0;
+}
+.mask4 .tip_content{
+    font-size: 0.22rem;
+    font-family: PingFang SC Regular, PingFang SC Regular-Regular;
+    color: #ffffff;
+}
+.mask4 .tip_mes{
+    display: flex;
+}
+/* 遗憾 */
+.mask1 .mask_top{
+    background: url(../image/yihan.png) no-repeat center /100%;
+}
+/* 实物 */
+.mask3 .coupon_text{
+    margin-top:2rem;
+}
+.mask3 .btn{
+    margin-top:0.4rem;
+}
+.mask3 .coupon_image{
+    width:2.45rem;
+    height:2.45rem;
+    margin-top:0.1rem;
+    border-radius:0.10rem;
+    background:#f8d5aa;
+}
+.mask3 .coupon_image img{
+    width:2.4rem;
+    height:2.4rem;
+    margin:0.025rem;
+}
+
+
+
+.user_list{
+    width:4rem;
+    height:4rem;
+    bottom:1rem;
+    left:0;
+    position:absolute;
+    font-size:0.2rem;
+    -webkit-mask-image:linear-gradient(transparent,red);
+}
+.user_list>div{
+    width:4rem;
+    height:0.6rem;
+    background: linear-gradient(#d4472e 0%, #ff7d66 100%);
+    border-radius:0.3rem;
+    font-size: 0.22rem;
+    color: #ffffff;
+    display: flex;
+    margin-top:0.2rem;
+    /* justify-content: center; */
+    align-items: center;
+}
+.user_list>div>div{
+    margin-left:0.1rem;
+}
+.user_list img{
+    width:0.4rem;
+    height:0.4rem;
+    border-radius:0.2rem;
+    margin-left:0.1rem;
+}
+
+
+.tips{
+    width:0.79rem;
+    height:2.09rem;
+    position: absolute;
+    top:1.03rem;
+    right:0;
+    background: url(../image/fp2x.png)no-repeat center/100%;
+}
+.num{
+    color: #fee2c7;
+    font-size: 0.26rem;
+    position: absolute;
+    top:9.3rem;
+    text-align: center;
+    width:100%;
+}

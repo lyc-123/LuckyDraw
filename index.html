@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中奖纪录</title>
+</head>
+<script>
+    /*
+    作者:helang
+    此版本应用于 750px尺寸的 iOS 设计稿
+    rem计算方式：设计图尺寸px / 100 = 实际rem  【例: 100px = 1rem，32px = 0.32rem】
+ */
+!function (window) {
+    /* 设计图文档宽度 */
+    var docWidth = 750;
+    var doc = window.document,
+        docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+    var recalc = (function refreshRem () {
+        /* 窗口当前宽度 */
+        var clientWidth = docEl.getBoundingClientRect().width;
+        /* 页面宽度大于 750 时不再放大 */
+        clientWidth = clientWidth > 750 ? 750 : clientWidth;
+        var oldSize = (clientWidth/docWidth*100) + 'px';
+        docEl.style.fontSize = oldSize;
+
+        /* 获取设置后的字体大小情况 - 因微信设置APP字体大小后会影响该设置 */
+        var nowSize = window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize;
+        var oldSizeValue = parseFloat(oldSize,10);
+        var nowSizeValue = parseFloat(nowSize,10);
+
+        /* 当差值大于1时重新按差比计算出正确的px值 */
+        if((nowSizeValue - oldSizeValue) > 1 || (nowSizeValue - oldSizeValue) < -1){
+            var diff = (oldSizeValue / nowSizeValue);
+            docEl.style.fontSize = (clientWidth/docWidth*100*diff) + 'px';
+        }
+        return refreshRem;
+    })();
+    /* 添加倍屏标识，安卓为1 */
+    docEl.setAttribute('data-dpr', window.navigator.appVersion.match(/iphone/gi) ? window.devicePixelRatio : 1);
+    if (/iP(hone|od|ad)/.test(window.navigator.userAgent)) {
+        /* 添加IOS标识 */
+        doc.documentElement.classList.add('ios');
+        /* IOS8以上给html添加hairline样式，以便特殊处理 */
+        if (parseInt(window.navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) >= 8)
+            doc.documentElement.classList.add('hairline');
+    }
+    if (!doc.addEventListener) return;
+    window.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+}(window);
+</script>
+<link rel="stylesheet" href="./css/init.css">
+<body>
+    <!-- <div class="header">中奖纪录</div> -->
+    <div class="contain">
+        <div class="card_wrap">
+            <div class="card c1 "></div>
+            <div class="card c2 "></div>
+            <div class="card c3 "></div>
+            <div class="card c4 "></div>
+            <div class="card c5 "></div>
+            <div class="card c6 "></div>
+        </div>
+        <div class="user_list" >
+            <div>
+                <img src="https://aivr.vip/static/%E8%83%8C%E6%99%AF%E5%9B%BE.png" alt="">
+                <div>
+                    恭喜啷*都获得500元代金券
+                </div>
+            </div>
+            <div>
+                <img src="https://aivr.vip/static/%E8%83%8C%E6%99%AF%E5%9B%BE.png" alt="">
+                <div>
+                    恭喜啷*都获得1500元代金券
+                </div>
+            </div>
+            <div>
+                <img src="https://aivr.vip/static/%E8%83%8C%E6%99%AF%E5%9B%BE.png" alt="">
+                <div>
+                    恭喜啷*都
+                </div>
+            </div>
+            <div>
+                <img src="https://aivr.vip/static/%E8%83%8C%E6%99%AF%E5%9B%BE.png" alt="">
+                <div>
+                    恭喜啷*都获得3500元代金券
+                </div>
+            </div>
+        </div>
+        <div class="tips"></div>
+        <div class="num">—— 今日还剩 2 次翻牌机会 ——</div>
+    </div>
+
+    <!-- 优惠券弹窗 -->
+    <div class="mask mask2">
+        <div class="mask_top">
+            <div class="coupon_text">恭喜您翻到了20 元优惠券</div>
+            <div class="coupon_content">
+                <div class="coupon_inner_content">
+                    <div class="inner_left">
+                        <div class="price">
+                            20<span>元</span>
+                        </div>
+                    </div>
+                    <div class="inner_right">
+                        <div class="right_top">
+                            全场通用优惠券
+                        </div>
+                        <div class="right_bottom">
+                            满200元可用
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coupon_text1">优惠券已发入"我的优惠券"</div>
+            <div class="btn"></div>
+        </div>
+        <div class="mask_line"></div>
+        <div class="mask_btn"></div>
+    </div>
+    <!-- 遗憾弹窗 -->
+    <div class="mask mask1">
+        <div class="mask_top"></div>
+        <div class="mask_line"></div> 
+        <div class="mask_btn"></div>
+    </div>
+    <!-- 实物弹窗 -->
+    <div class="mask mask3">
+        <div class="mask_top">
+            <div class="coupon_text">恭喜您翻到了<br>
+                丁浩同款电动牙刷</div>
+            <div class="coupon_image">
+                <img src="https://aivr.vip/static/%E8%83%8C%E6%99%AF%E5%9B%BE.png" alt="">
+            </div>
+            <div class="btn"></div>
+        </div>
+        <div class="mask_line"></div> 
+        <div class="mask_btn"></div>
+    </div>
+
+    <!-- 提示弹窗 -->
+    <div class="mask mask4">
+        <div class="mask_top">
+            <div class="tip_wrap">
+                <div class="tip_title">活动规则</div>
+                <div class="tip_content">
+                    <div class="tip_mes">
+                        <div>1、</div>
+                        <div>翻牌次数每日进行重置，请获得次数后及时进行翻牌及兑奖；
+                        </div>
+                    </div>
+                    <div class="tip_mes">
+                        <div>2、</div>
+                        <div>翻中实物奖品的客户，点击立即兑换填写收货地址核对信息无误后提交订单即可兑换奖品，若中奖后未及时兑换并提交订单将于7日后取消兑奖资格；
+                        </div>
+                    </div>
+                    <div class="tip_mes">
+                        <div>3、</div>
+                        <div>翻中奖品不开具发票，实物奖品在7个工作日内发货；
+                        </div>
+                    </div>
+                    <div class="tip_mes">
+                        <div>4、</div>
+                        <div>本活动严禁任何形式的作弊行为，一经发现将取消获奖资格；
+                        </div>
+                    </div>
+                    <div class="tip_mes">
+                        <div>5、</div>
+                        <div>活动最终解释权归开堡平台所有。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mask_btn"></div>
+    </div>
+</body>
+<script src="./js/jquery-3.1.1.js"></script>
+<script>
+    var checkGoog = null; //点开的牌子
+    var isChecked = false; //是否已点击一个
+    var isAnimate = false; //是否在动画期间
+    var type = null; //0优惠券 1 遗憾 2实物
+    /**翻牌点击*/
+    $('.card_wrap').on("click", ".card", function () {
+        if(isAnimate){  //洗牌期间不允许点击
+            return
+        }
+        if(isChecked){
+            return
+        }
+        
+        /**
+         *  假设下标0是优惠券
+         * 1是很遗憾
+         * 2是实物
+        */
+
+        isChecked = true
+        $(this).addClass("open-card");
+        //动画监听
+        $(this).on("animationend", function () {
+            $(this).removeClass("open-card");//移除翻牌动画
+            $(this).off("animationend");//解绑动画监听
+            type = $(this).index()
+            if(type==0){
+                $(this).html('<p style="font-size:0.32rem;">20元优惠券</p>')
+                $('.mask2').show()
+            }else if(type == 1){
+                $('.mask1').show()
+            }else {
+                $('.mask3').show()
+            }
+
+
+            
+            checkGoog = $(this)
+            isChecked = false
+        });
+    })
+    /** 关闭蒙版 */
+    // 遗憾
+    $('.mask1').on("click", function () {
+        $('.mask1').hide()
+        // checkGoog.html('')
+        shuffle()
+        
+    })
+
+    // 代金券
+    $('.mask2 .mask_btn').on("click", function () {
+        $('.mask2').hide()
+        checkGoog.html('')
+        shuffle()
+    })
+    $('.mask2').on("click", function () {
+        $('.mask2').hide()
+        checkGoog.html('')
+        shuffle()
+        
+    })
+    $('.mask2 .mask_top').on("click", function (event) {
+        event.stopPropagation();
+    }) 
+    //实物
+    $('.mask3 .mask_btn').on("click", function () {
+        $('.mask3').hide()
+        // checkGoog.html('')
+        shuffle()
+    })
+    $('.mask3').on("click", function () {
+        $('.mask3').hide()
+        // checkGoog.html('')
+        shuffle()
+        
+    })
+    $('.mask3 .mask_top').on("click", function (event) {
+        event.stopPropagation();
+    }) 
+    //tips
+    $('.mask4').on("click", function () {
+        $('.mask4').hide()
+    })
+    $('.mask4 .mask_top').on("click", function (event) {
+        event.stopPropagation();
+    }) 
+    /** 翻牌动画 */
+    function shuffle(){
+        $('.card_wrap').addClass("in");
+        isAnimate = true;
+        type = null;
+        $('.c4').on("animationend", function () {
+            $('.card_wrap').removeClass("in");
+            
+            $('.card_wrap').off("animationend");//解绑动画监听
+            isAnimate = false
+        })
+    }
+
+    /** 轮播 */
+    $(function() {
+        //获得当前<ul>
+        var $uList = $(".user_list");
+        var timer = null;
+        //触摸清空定时器
+        $uList.hover(function() {
+            // clearInterval(timer);
+        },
+        function() { //离开启动定时器
+            timer = setInterval(function() {
+                scrollList($uList);
+            },
+            1000);
+        }).trigger("mouseleave"); //自动触发触摸事件
+        //滚动动画
+        function scrollList(obj) {
+            //获得当前<li>的高度
+            var scrollHeight = $(".user_list div:first").height();
+            //滚动出一个<li>的高度
+            $uList.stop().animate({
+                marginTop: -scrollHeight
+            },
+            600,
+            function() {
+                //动画结束后，将当前<ul>marginTop置为初始值0状态，再将第一个<li>拼接到末尾。
+                $uList.css({
+                    marginTop: 0
+                }).find("div:first").appendTo($uList);
+            });
+        }
+    });
+</script>
+</html>
